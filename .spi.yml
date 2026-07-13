@@ -9,3 +9,4 @@ builder:
       scheme: Period
     - platform: watchos
       scheme: Period
+    - documentation_targets: [Period]
