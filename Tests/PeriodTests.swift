@@ -2,7 +2,7 @@ import Period
 import Testing
 
 struct PeriodTests {
-	@Test func initWithAllComponents() {
+	@Test func `init with all components`() {
 		let period = Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6)
 		#expect(period.years == 1)
 		#expect(period.months == 2)
@@ -12,7 +12,7 @@ struct PeriodTests {
 		#expect(period.seconds == 6)
 	}
 
-	@Test func initWithDefaults() {
+	@Test func `init with defaults`() {
 		let period = Period(years: 1)
 		#expect(period.years == 1)
 		#expect(period.months == 0)
@@ -22,7 +22,7 @@ struct PeriodTests {
 		#expect(period.seconds == 0)
 	}
 
-	@Test func initEmpty() {
+	@Test func `init empty`() {
 		let period = Period()
 		#expect(period == .zero)
 	}

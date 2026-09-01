@@ -5,7 +5,7 @@ import Testing
 struct CalendarTests {
 	let calendar = Calendar(identifier: .iso8601)
 
-	@Test func calendarDateByAddingPeriod() throws {
+	@Test func `calendar date by adding period`() throws {
 		let date = Date(timeIntervalSinceReferenceDate: 0) // 2001-01-01 00:00:00 UTC
 		let period = Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6)
 
@@ -20,7 +20,7 @@ struct CalendarTests {
 		#expect(components.second == 6)
 	}
 
-	@Test func calendarPeriodFromDates() throws {
+	@Test func `calendar period from dates`() throws {
 		let start = Date(timeIntervalSinceReferenceDate: 0) // 2001-01-01 00:00:00 UTC
 		let end = try #require(calendar.date(byAdding: DateComponents(year: 1, month: 2, day: 3, hour: 4, minute: 5, second: 6), to: start))
 
@@ -34,7 +34,7 @@ struct CalendarTests {
 		#expect(period.seconds == 6)
 	}
 
-	@Test func calendarPeriodFromDatesNegative() throws {
+	@Test func `negative calendar period from dates`() throws {
 		let start = Date(timeIntervalSinceReferenceDate: 0)
 		let end = try #require(calendar.date(byAdding: DateComponents(year: -1, month: -2, day: -3), to: start))
 

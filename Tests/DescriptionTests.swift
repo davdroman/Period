@@ -2,7 +2,7 @@ import Period
 import Testing
 
 struct DescriptionTests {
-	@Test func periodDescription() {
+	@Test func `period description`() {
 		#expect(
 			Period.zero.description
 				== "",
