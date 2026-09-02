@@ -12,7 +12,7 @@ struct ISO8601Tests {
 	}
 
 	@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
-	@Test func regexMatch() {
+	@Test func `regex match`() {
 		let regex = Regex {
 			"Duration: "
 			Capture { Period.ISO8601FormatStyle() }
@@ -23,7 +23,7 @@ struct ISO8601Tests {
 	}
 
 	@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
-	@Test func regexMatchPartial() {
+	@Test func `partial regex match`() {
 		let regex = Regex {
 			Period.ISO8601FormatStyle()
 		}
@@ -33,7 +33,7 @@ struct ISO8601Tests {
 	}
 
 	@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
-	@Test func regexNoMatch() {
+	@Test func `regex does not match`() {
 		let regex = Regex {
 			Period.ISO8601FormatStyle()
 		}

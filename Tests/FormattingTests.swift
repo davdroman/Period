@@ -9,7 +9,7 @@ struct FormattingTests {
 }
 
 extension FormattingTests {
-	@Test func periodFormatting_defaultStyle() {
+	@Test func `period formatting default style`() {
 		#expect(
 			Period.zero.formatted(.full.locale(enLocale))
 				== "0 seconds",
@@ -22,7 +22,7 @@ extension FormattingTests {
 }
 
 extension FormattingTests {
-	@Test func periodFormatting_explicitStyle() {
+	@Test func `period formatting explicit style`() {
 		#expect(
 			Period.zero.formatted(.short.locale(enLocale))
 				== "0 secs",
@@ -35,7 +35,7 @@ extension FormattingTests {
 }
 
 extension FormattingTests {
-	@Test func periodFormatting_customAllowedUnits() {
+	@Test func `period formatting custom allowed units`() {
 		#expect(
 			Period.zero.formatted(.full.allowedUnits([.day, .hour, .minute, .second]).locale(enLocale))
 				== "0 seconds",
@@ -48,7 +48,7 @@ extension FormattingTests {
 }
 
 extension FormattingTests {
-	@Test func periodFormatting_esLocale() {
+	@Test func `period formatting with Spanish locale`() {
 		#expect(
 			Period.zero.formatted(.full.locale(esLocale))
 				== "0 segundos",
