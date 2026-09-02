@@ -172,3 +172,12 @@ format PT5H30M          583.000 ns ±  82.43 %    1000000
 format P1Y2M3DT4H5M6S  1292.000 ns ±  57.21 %    1000000
 format .zero            167.000 ns ± 152.35 %    1000000
 ```
+
+## Development
+
+Install [Mise](https://mise.jdx.dev/), then install the project tools and Git hooks:
+
+```sh
+mise install
+mise exec -- hk install --mise
+```
