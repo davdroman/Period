@@ -22,7 +22,10 @@ struct CalendarTests {
 
 	@Test func `calendar period from dates`() throws {
 		let start = Date(timeIntervalSinceReferenceDate: 0) // 2001-01-01 00:00:00 UTC
-		let end = try #require(calendar.date(byAdding: DateComponents(year: 1, month: 2, day: 3, hour: 4, minute: 5, second: 6), to: start))
+		let end = try #require(calendar.date(
+			byAdding: DateComponents(year: 1, month: 2, day: 3, hour: 4, minute: 5, second: 6),
+			to: start,
+		))
 
 		let period = calendar.period(from: start, to: end)
 

@@ -6,14 +6,42 @@ struct ArithmeticTests {
 
 	@Test func `unary plus`() {
 		#expect(+Period.zero == Period.zero)
-		#expect(+Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6) == Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6))
-		#expect(+Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6) == Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6))
+		#expect(+Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6) == Period(
+			years: 1,
+			months: 2,
+			days: 3,
+			hours: 4,
+			minutes: 5,
+			seconds: 6,
+		))
+		#expect(+Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6) == Period(
+			years: -1,
+			months: -2,
+			days: -3,
+			hours: -4,
+			minutes: -5,
+			seconds: -6,
+		))
 	}
 
 	@Test func `unary minus`() {
 		#expect(-Period.zero == Period.zero)
-		#expect(-Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6) == Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6))
-		#expect(-Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6) == Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6))
+		#expect(-Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6) == Period(
+			years: -1,
+			months: -2,
+			days: -3,
+			hours: -4,
+			minutes: -5,
+			seconds: -6,
+		))
+		#expect(-Period(years: -1, months: -2, days: -3, hours: -4, minutes: -5, seconds: -6) == Period(
+			years: 1,
+			months: 2,
+			days: 3,
+			hours: 4,
+			minutes: 5,
+			seconds: 6,
+		))
 	}
 
 	// MARK: - Addition

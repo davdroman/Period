@@ -41,7 +41,10 @@ extension Period {
 
 		enum Parser {
 			static let regex = try! NSRegularExpression(
-				pattern: #"([+-])?P(?:(-?\d+)?Y)?(?:(-?\d+)?M)?(?:(-?\d+)?W)?(?:(-?\d+)?D)?(?:T(?:(-?\d+)?H)?(?:(-?\d+)?M)?(?:(-?\d+)?S)?)?"#,
+				pattern: #"""
+				([+-])?P(?:(-?\d+)?Y)?(?:(-?\d+)?M)?(?:(-?\d+)?W)?(?:(-?\d+)?D)?\#
+				(?:T(?:(-?\d+)?H)?(?:(-?\d+)?M)?(?:(-?\d+)?S)?)?
+				"""#,
 			)
 
 			static func parse(_ string: String) -> Period? {
@@ -67,11 +70,12 @@ extension Period {
 					return Int(string[swiftRange])
 				}
 
-				let leadingSign: Int = if let signRange = Range(match.range(at: 1), in: string) {
-					string[signRange] == "-" ? -1 : 1
-				} else {
-					1
-				}
+				let leadingSign: Int =
+					if let signRange = Range(match.range(at: 1), in: string) {
+						string[signRange] == "-" ? -1 : 1
+					} else {
+						1
+					}
 
 				let years = extractInt(at: 2)
 				let months = extractInt(at: 3)
@@ -141,7 +145,11 @@ extension Numeric {
 extension Period.ISO8601FormatStyle: CustomConsumingRegexComponent {
 	public typealias RegexOutput = Period
 
-	public func consuming(_ input: String, startingAt index: String.Index, in bounds: Range<String.Index>) throws -> (upperBound: String.Index, output: Period)? {
+	public func consuming(
+		_ input: String,
+		startingAt index: String.Index,
+		in bounds: Range<String.Index>,
+	) throws -> (upperBound: String.Index, output: Period)? {
 		guard index < bounds.upperBound else { return nil }
 
 		let substring = String(input[index..<bounds.upperBound])

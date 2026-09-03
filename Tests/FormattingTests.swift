@@ -41,7 +41,17 @@ extension FormattingTests {
 				== "0 seconds",
 		)
 		#expect(
-			Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6).formatted(.full.allowedUnits([.day, .hour, .minute, .second]).locale(enLocale))
+			Period(years: 1, months: 2, days: 3, hours: 4, minutes: 5, seconds: 6)
+				.formatted(
+					.full
+						.allowedUnits([
+							.day,
+							.hour,
+							.minute,
+							.second,
+						])
+						.locale(enLocale),
+				)
 				== "427 days, 4 hours, 5 minutes, 6 seconds",
 		)
 	}
